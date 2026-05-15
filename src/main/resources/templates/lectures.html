@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: body">
+<body>
+<h2>Lecture Schedule</h2>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Day</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Subject</th>
+        <th>Teacher</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="lecture : ${lectures}">
+        <td th:text="${lecture.dayOfWeek}"></td>
+        <td th:text="${lecture.startTime}"></td>
+        <td th:text="${lecture.endTime}"></td>
+        <td th:text="${lecture.subject}"></td>
+        <td th:text="${lecture.teacher.name}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
