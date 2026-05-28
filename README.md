@@ -1,8 +1,5 @@
 # Student Dashboard Demo
-
-A demo Student Dashboard application built with Spring Boot, Thymeleaf, JPA/Hibernate, and H2 Database.
-
-The application demonstrates a simple educational management system where students, teachers, lectures, and exams can be managed through a web interface.
+A demo Student Dashboard application built with Spring Boot, Thymeleaf, JPA/Hibernate and H2 Database. The project also demonstrates Docker-based deployment, JUnit testing and GitLab CI/CD automation.
 
 ## Features
 
@@ -115,14 +112,15 @@ http://localhost:8080
 
 ## CI/CD
 
-A GitLab CI/CD pipeline is configured using `.gitlab-ci.yml`.
+A GitLab CI/CD pipeline is configured using .gitlab-ci.yml.
 
 Pipeline stages:
-
-* Build
-* Test
+- Build
+- Test
 
 The pipeline automatically executes Maven build and JUnit tests whenever code is pushed to GitLab.
+
+The current pipeline is passing successfully.
 
 ## Demo Data
 
