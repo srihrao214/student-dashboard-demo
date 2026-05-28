@@ -395,11 +395,8 @@ Potential future enhancements:
 * Update and delete operations
 * JWT authentication and authorization
 * PostgreSQL/MySQL integration
-* Docker containerization
 * REST API endpoints
 * Pagination and filtering
-* Unit and integration testing
-* CI/CD pipeline integration
 * Kubernetes deployment
 * Logging and monitoring
 * Role-based access control
