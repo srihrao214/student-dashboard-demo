@@ -10,13 +10,14 @@ This project demonstrates a clean enterprise-style MVC architecture, server-side
 
 The application allows administrators or staff members to manage student information through a web dashboard.
 
-Users can:
-
-* Add students
-* View student details
-* Update student records
-* Delete students
-* Navigate through a responsive dashboard UI
+Features
+Responsive student dashboard UI
+Student overview page
+Backend integration using Spring Boot
+Thymeleaf-based frontend rendering
+Maven project structure
+Basic database integration with H2
+Clean layered architecture using Controller, Service and Repository patterns
 
 The project focuses on:
 
