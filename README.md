@@ -118,6 +118,118 @@ This project is currently focused on demonstrating backend architecture, MVC str
 * Clean dashboard layout
 * Form-based user interaction
 
+  ## Testing with JUnit
+
+The project includes basic Spring Boot integration testing using JUnit 5.
+
+The test validates that the application context starts correctly and that the initial demo data is loaded into the H2 database.
+
+Example test coverage:
+
+* Spring Boot application context loading
+* Repository layer validation
+* H2 in-memory database initialization
+* Demo data verification from `data.sql`
+
+Run tests locally:
+
+```bash
+mvn test
+```
+
+---
+
+## Docker Support
+
+This project includes a `Dockerfile` for containerizing the Spring Boot application.
+
+Dockerfile overview:
+
+```dockerfile
+FROM eclipse-temurin:17-jdk
+
+WORKDIR /app
+
+COPY target/*.jar app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java","-jar","app.jar"]
+```
+
+Build the application first:
+
+```bash
+mvn clean package
+```
+
+Build Docker image:
+
+```bash
+docker build -t student-dashboard-demo .
+```
+
+Run Docker container:
+
+```bash
+docker run -p 8080:8080 student-dashboard-demo
+```
+
+Open in browser:
+
+```text
+http://localhost:8080
+```
+
+---
+
+## GitLab CI/CD Pipeline
+
+This project includes a basic GitLab CI/CD pipeline using `.gitlab-ci.yml`.
+
+The pipeline automatically runs when code is pushed to GitLab.
+
+Pipeline stages:
+
+* `build` – compiles the project using Maven
+* `test` – runs JUnit tests using Maven
+
+Example pipeline configuration:
+
+```yaml
+stages:
+  - build
+  - test
+
+build-job:
+  stage: build
+  image: maven:3.9-eclipse-temurin-17
+  script:
+    - mvn clean compile
+
+test-job:
+  stage: test
+  image: maven:3.9-eclipse-temurin-17
+  script:
+    - mvn test
+```
+
+The latest GitLab pipeline successfully passed both build and test stages.
+
+---
+
+## DevOps / Automation Highlights
+
+This project demonstrates basic modern backend development workflow experience:
+
+* GitHub repository for source code hosting
+* GitLab repository for CI/CD demonstration
+* GitLab Runner executing automated build and test jobs
+* Maven-based build automation
+* Dockerfile for containerized deployment
+* JUnit test execution in local and CI environments
+
+
 ---
 
 # Project Structure
