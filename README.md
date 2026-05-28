@@ -101,12 +101,14 @@ This project is currently focused on demonstrating backend architecture, MVC str
 
 ## Backend Features
 
-* MVC architecture
-* Dependency Injection
-* REST-style request handling
-* JPA/Hibernate ORM mapping
-* Form handling using Spring MVC
-* Validation-ready structure
+* MVC-based application architecture
+* Dependency Injection using Spring Framework
+* Server-side rendering with Thymeleaf
+* Layered structure using Controller, Service and Repository components
+* JPA/Hibernate integration
+* H2 database configuration
+* Validation and form support prepared for future enhancements
+
 
 ## Frontend Features
 
