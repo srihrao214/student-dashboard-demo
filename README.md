@@ -1,167 +1,99 @@
 # Student Dashboard Demo
 
-A modern Java-based Student Management Dashboard application built using Spring Boot, Thymeleaf, Spring Data JPA, and Bootstrap.
+A demo Student Dashboard application built with Spring Boot, Thymeleaf, JPA/Hibernate, and H2 Database.
 
-This project demonstrates a clean enterprise-style MVC architecture, server-side rendering, database integration, and responsive UI design.
+The application demonstrates a simple educational management system where students, teachers, lectures, and exams can be managed through a web interface.
 
----
+## Features
 
-# Project Overview
+* Student management
+* Teacher management
+* Lecture scheduling
+* Exam management
+* Thymeleaf-based UI
+* H2 in-memory database
+* Spring Data JPA / Hibernate persistence
+* Sample demo data initialization
+* JUnit 5 integration testing
+* Docker support
+* GitLab CI/CD pipeline
 
-The application allows administrators or staff members to manage student information through a web dashboard.
+## Technology Stack
 
-Features
-Responsive student dashboard UI
-Student overview page
-Backend integration using Spring Boot
-Thymeleaf-based frontend rendering
-Maven project structure
-Basic database integration with H2
-Clean layered architecture using Controller, Service and Repository patterns
+* Java 17
+* Spring Boot 3
+* Spring Data JPA
+* Hibernate
+* Thymeleaf
+* H2 Database
+* Maven
+* JUnit 5
+* Docker
+* GitLab CI/CD
 
-The project focuses on:
-
-* Clean backend architecture
-* MVC design principles
-* Spring Boot enterprise development practices
-* Database persistence using JPA/Hibernate
-* Thymeleaf server-side rendering
-* Responsive frontend integration using Bootstrap
-
----
-
-# Technologies Used
-
-| Technology      | Purpose                              |
-| --------------- | ------------------------------------ |
-| Java            | Core programming language            |
-| Spring Boot     | Backend framework                    |
-| Spring MVC      | Web/MVC architecture                 |
-| Spring Data JPA | Database persistence layer           |
-| Hibernate       | ORM framework                        |
-| Thymeleaf       | Server-side template engine          |
-| Bootstrap       | Responsive frontend styling          |
-| H2 Database     | In-memory database                   |
-| Maven           | Dependency management and build tool |
-
----
-
-# Architecture
-
-The application follows a layered MVC architecture:
+## Project Structure
 
 ```text
-Client Browser
-      ↓
-Thymeleaf UI
-      ↓
-Controller Layer
-      ↓
-Service Layer
-      ↓
-Repository Layer
-      ↓
-H2 Database
+src
+├── main
+│   ├── java
+│   └── resources
+│       ├── templates
+│       ├── application.properties
+│       └── data.sql
+└── test
+    └── java
 ```
 
-## Layer Responsibilities
+## Running the Application
 
-### Controller Layer
+### Clone Repository
 
-Handles incoming HTTP requests and returns appropriate Thymeleaf views.
+```bash
+git clone https://github.com/srihrao214/student-dashboard-demo.git
+cd student-dashboard-demo
+```
 
-### Service Layer
+### Build
 
-Contains business logic and separates application logic from controllers.
+```bash
+mvn clean package
+```
 
-### Repository Layer
+### Run
 
-Handles database operations using Spring Data JPA.
+```bash
+mvn spring-boot:run
+```
 
-### Database Layer
+Application:
 
-Stores student data using H2 in-memory database.
+```text
+http://localhost:8080
+```
 
----
+H2 Console:
 
-# Features
+```text
+http://localhost:8080/h2-console
+```
 
-## Student Management
+## Testing
 
-Current functionality:
+The project includes JUnit 5 integration tests that verify:
 
-* Display student records from database
-* Dashboard-style student overview
-* Thymeleaf-based UI rendering
-* Server-side rendering with Spring Boot MVC
-* Demonstration of layered architecture
+* Spring Boot application startup
+* Database initialization
+* Demo data loading
+* Repository functionality
 
-Note:
-This project is currently focused on demonstrating backend architecture, MVC structure, Thymeleaf integration, and database connectivity. Student records are preloaded using `data.sql` for demonstration purposes.
-
-## Backend Features
-
-* MVC-based application architecture
-* Dependency Injection using Spring Framework
-* Server-side rendering with Thymeleaf
-* Layered structure using Controller, Service and Repository components
-* JPA/Hibernate integration
-* H2 database configuration
-* Validation and form support prepared for future enhancements
-
-
-## Frontend Features
-
-* Responsive Bootstrap UI
-* Thymeleaf template rendering
-* Dynamic table rendering
-* Clean dashboard layout
-* Form-based user interaction
-
-  ## Testing with JUnit
-
-The project includes basic Spring Boot integration testing using JUnit 5.
-
-The test validates that the application context starts correctly and that the initial demo data is loaded into the H2 database.
-
-Example test coverage:
-
-* Spring Boot application context loading
-* Repository layer validation
-* H2 in-memory database initialization
-* Demo data verification from `data.sql`
-
-Run tests locally:
+Run tests:
 
 ```bash
 mvn test
 ```
 
----
-
 ## Docker Support
-
-This project includes a `Dockerfile` for containerizing the Spring Boot application.
-
-Dockerfile overview:
-
-```dockerfile
-FROM eclipse-temurin:17-jdk
-
-WORKDIR /app
-
-COPY target/*.jar app.jar
-
-EXPOSE 8080
-
-ENTRYPOINT ["java","-jar","app.jar"]
-```
-
-Build the application first:
-
-```bash
-mvn clean package
-```
 
 Build Docker image:
 
@@ -175,264 +107,48 @@ Run Docker container:
 docker run -p 8080:8080 student-dashboard-demo
 ```
 
-Open in browser:
+Open:
 
 ```text
 http://localhost:8080
 ```
 
----
+## CI/CD
 
-## GitLab CI/CD Pipeline
-
-This project includes a basic GitLab CI/CD pipeline using `.gitlab-ci.yml`.
-
-The pipeline automatically runs when code is pushed to GitLab.
+A GitLab CI/CD pipeline is configured using `.gitlab-ci.yml`.
 
 Pipeline stages:
 
-* `build` – compiles the project using Maven
-* `test` – runs JUnit tests using Maven
+* Build
+* Test
 
-Example pipeline configuration:
+The pipeline automatically executes Maven build and JUnit tests whenever code is pushed to GitLab.
 
-```yaml
-stages:
-  - build
-  - test
+## Demo Data
 
-build-job:
-  stage: build
-  image: maven:3.9-eclipse-temurin-17
-  script:
-    - mvn clean compile
+The application is preloaded with sample:
 
-test-job:
-  stage: test
-  image: maven:3.9-eclipse-temurin-17
-  script:
-    - mvn test
-```
+* Students
+* Teachers
+* Lectures
+* Exams
 
-The latest GitLab pipeline successfully passed both build and test stages.
+using the `data.sql` script.
 
----
+## Possible Future Enhancements
 
-## DevOps / Automation Highlights
-
-This project demonstrates basic modern backend development workflow experience:
-
-* GitHub repository for source code hosting
-* GitLab repository for CI/CD demonstration
-* GitLab Runner executing automated build and test jobs
-* Maven-based build automation
-* Dockerfile for containerized deployment
-* JUnit test execution in local and CI environments
-
-
----
-
-# Project Structure
-
-```text
-src/main/java
- ├── controller
- ├── service
- ├── repository
- ├── model/entity
- └── StudentDashboardApplication
-
-src/main/resources
- ├── templates
- ├── static
- └── application.properties
-```
-
----
-
-# Database Configuration
-
-This project uses an H2 in-memory database for simplicity and fast local development.
-
-## Advantages of H2
-
-* Lightweight
-* Easy setup
-* Fast startup
-* Suitable for demos and testing
-
-Example configuration:
-
-```properties
-spring.datasource.url=jdbc:h2:mem:testdb
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-```
-
----
-
-# JPA / Hibernate Usage
-
-The application uses Spring Data JPA with Hibernate ORM.
-
-Key concepts demonstrated:
-
-* Entity mapping
-* Repository abstraction
-* CRUD persistence
-* ORM-based database interaction
-* Automatic query generation
-
-Example entity:
-
-```java
-@Entity
-public class Student {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String name;
-    private String email;
-}
-```
-
----
-
-# Thymeleaf Integration
-
-Thymeleaf is used as the server-side template engine.
-
-Benefits:
-
-* Tight integration with Spring Boot
-* Dynamic HTML rendering
-* Simple form binding
-* Easy MVC integration
-* Suitable for enterprise CRUD applications
-
-Example:
-
-```html
-<tr th:each="student : ${students}">
-    <td th:text="${student.name}"></td>
-</tr>
-```
-
----
-
-# Request Flow Example
-
-Example request flow for loading dashboard data:
-
-```text
-Browser Request
-   ↓
-Controller handles HTTP request
-   ↓
-Service layer processes business logic
-   ↓
-Repository fetches data using JPA
-   ↓
-Database queried
-   ↓
-Controller returns Thymeleaf view
-```
-
-````
-
----
-
-# Running the Application
-
-## Prerequisites
-
-- Java 17+
-- Maven
-
-## Steps
-
-### Clone Repository
-
-```bash
-git clone https://github.com/srihrao214/student-dashboard-demo.git
-````
-
-### Navigate to Project
-
-```bash
-cd student-dashboard-demo
-```
-
-### Build Project
-
-```bash
-mvn clean install
-```
-
-### Run Application
-
-```bash
-mvn spring-boot:run
-```
-
-### Open in Browser
-
-```text
-http://localhost:8080
-```
-
----
-
-# Possible Future Enhancements
-
-Potential future enhancements:
-
-* Add student creation functionality
-* Update and delete operations
-* JWT authentication and authorization
-* PostgreSQL/MySQL integration
-* REST API endpoints
-* Pagination and filtering
+* Spring Security with JWT authentication
+* Role-based authorization
+* Attendance tracking
+* Grade management
+* REST API documentation with Swagger/OpenAPI
+* PostgreSQL/MySQL support
 * Kubernetes deployment
-* Logging and monitoring
-* Role-based access control
+* Cloud deployment (AWS/Azure/GCP)
 
----
-
-# Learning Outcomes
-
-This project helped strengthen practical experience in:
-
-* Java backend development
-* Spring Boot architecture
-* MVC design pattern
-* ORM and relational databases
-* Thymeleaf frontend integration
-* Enterprise application structure
-* CRUD application development
-
----
-
-# Use Case
-
-This project is intended for:
-
-* Learning Spring Boot development
-* Demonstrating Java backend skills
-* Understanding MVC architecture
-* Practicing JPA/Hibernate
-* Portfolio/GitHub showcase
-* Interview discussions and technical demonstrations
-
----
-
-# Author
+## Author
 
 Sriram Rao
 
 GitHub:
-[https://github.com/srihrao214](https://github.com/srihrao214)
+https://github.com/srihrao214
