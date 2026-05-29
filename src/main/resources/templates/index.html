@@ -2,55 +2,167 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Student Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
-<body class="container mt-4">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">Student Dashboard</a>
 
-        <div class="navbar-nav">
-            <a class="nav-link" href="/">Dashboard</a>
-            <a class="nav-link" href="/exams">Exams</a>
-            <a class="nav-link" href="/teachers">Teachers</a>
-            <a class="nav-link" href="/students">Students</a>
+<body class="bg-light">
+
+<div class="container mt-4">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary rounded mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Student Dashboard</a>
+
+            <div class="navbar-nav">
+                <a class="nav-link active fw-bold" href="/">Dashboard</a>
+                <a class="nav-link" href="/lectures">Lectures</a>
+                <a class="nav-link" href="/exams">Exams</a>
+                <a class="nav-link" href="/teachers">Teachers</a>
+                <a class="nav-link" href="/students">Students</a>
+            </div>
+        </div>
+    </nav>
+
+    <h2 class="mb-4">Student Dashboard</h2>
+
+    <div class="row mb-4">
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Students</h5>
+                    <h2 th:text="${studentCount}">0</h2>
+                    <a href="/students" class="btn btn-primary btn-sm">View</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Teachers</h5>
+                    <h2 th:text="${teacherCount}">0</h2>
+                    <a href="/teachers" class="btn btn-primary btn-sm">View</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Lectures</h5>
+                    <h2 th:text="${lectureCount}">0</h2>
+                    <a href="/lectures" class="btn btn-primary btn-sm">View</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Exams</h5>
+                    <h2 th:text="${examCount}">0</h2>
+                    <a href="/exams" class="btn btn-primary btn-sm">View</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="row mt-4">
+
+    <div class="col-md-6">
+        <h4>Lecture Schedule</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Day</th>
+                <th>Time</th>
+                <th>Subject</th>
+                <th>Teacher</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="lecture : ${lectures}">
+                <td th:text="${lecture.dayOfWeek}"></td>
+                <td>
+                    <span th:text="${lecture.startTime}"></span>
+                    -
+                    <span th:text="${lecture.endTime}"></span>
+                </td>
+                <td th:text="${lecture.subject}"></td>
+                <td th:text="${lecture.teacher.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-6">
+        <h4>Recent Exams</h4>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Date</th>
+                <th>Result</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="exam : ${exams}">
+                <td th:text="${exam.subject}"></td>
+                <td th:text="${exam.date}"></td>
+                <td>
+                    <span th:if="${exam.result.toString() == 'PASS'}"
+                          class="badge bg-success"
+                          th:text="${exam.result}"></span>
+
+                    <span th:if="${exam.result.toString() == 'FAIL'}"
+                          class="badge bg-danger"
+                          th:text="${exam.result}"></span>
+
+                    <span th:if="${exam.result.toString() == 'PENDING'}"
+                          class="badge bg-warning text-dark"
+                          th:text="${exam.result}"></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<div class="row mt-4 mb-5">
+
+    <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+            <div class="card-body">
+                <h5>Passed Exams</h5>
+                <h2 class="text-success" th:text="${passCount}">0</h2>
+            </div>
         </div>
     </div>
-</nav>
-<h2 class="text-center mb-4"> Student Dashboard</h2>
 
-<h4>Lecture Schedule (Mon–Fri)</h4>
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Day</th><th>Start</th><th>End</th><th>Subject</th><th>Teacher</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="lecture : ${lectures}">
-        <td th:text="${lecture.dayOfWeek}"></td>
-        <td th:text="${lecture.startTime}"></td>
-        <td th:text="${lecture.endTime}"></td>
-        <td th:text="${lecture.subject}"></td>
-        <td th:text="${lecture.teacher.name}"></td>
-    </tr>
-    </tbody>
-</table>
+    <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+            <div class="card-body">
+                <h5>Failed Exams</h5>
+                <h2 class="text-danger" th:text="${failCount}">0</h2>
+            </div>
+        </div>
+    </div>
 
-<h4>Exams</h4>
-<table class="table table-bordered">
-    <thead>
-    <tr>
-        <th>Subject</th><th>Date</th><th>Result</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="exam : ${exams}">
-        <td th:text="${exam.subject}"></td>
-        <td th:text="${exam.date}"></td>
-        <td th:text="${exam.result}"></td>
-    </tr>
-    </tbody>
-</table>
+    <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+            <div class="card-body">
+                <h5>Pending Exams</h5>
+                <h2 class="text-warning" th:text="${pendingCount}">0</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 </body>
 </html>
