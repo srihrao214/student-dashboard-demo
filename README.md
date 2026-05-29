@@ -4,8 +4,8 @@ A demo Student Dashboard application built with Spring Boot, Thymeleaf, JPA/Hibe
 
 ## Status
 
-✅ Build Passing (GitHub Actions)
-✅ Build Passing (GitLab CI/CD)
+ Build Passing (GitHub Actions)
+ Build Passing (GitLab CI/CD)
 
 ## Features
 
