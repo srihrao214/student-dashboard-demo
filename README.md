@@ -1,23 +1,26 @@
 # Student Dashboard Demo
-A demo Student Dashboard application built with Spring Boot, Thymeleaf, JPA/Hibernate, and H2 Database. The project demonstrates CRUD operations for Students, Teachers, Lectures, and Exams, along with entity relationships, dashboard statistics, Docker-based deployment, JUnit testing, and GitLab CI/CD automation.Status
 
- Build Passing (GitHub Actions)
- Build Passing (GitLab CI/CD)
+A demo Student Dashboard application built with Spring Boot, Thymeleaf, JPA/Hibernate, and H2 Database. The project demonstrates CRUD operations for Students, Teachers, Lectures, and Exams, along with entity relationships, dashboard statistics, Docker-based deployment, JUnit testing, and CI/CD automation using GitHub Actions and GitLab CI/CD.
 
+## Status
+
+✅ Build Passing (GitHub Actions)
+✅ Build Passing (GitLab CI/CD)
 
 ## Features
 
-* Student management
-* Teacher management
-* Lecture scheduling
-* Exam management
+* Student Management
+* Teacher Management
+* Lecture Scheduling
+* Exam Management
 * Thymeleaf-based UI
-* H2 in-memory database
-* Spring Data JPA / Hibernate persistence
-* Sample demo data initialization
-* JUnit 5 integration testing
-* Docker support
-* GitLab CI/CD pipeline
+* H2 Database Integration
+* Spring Data JPA / Hibernate Persistence
+* Sample Demo Data Initialization
+* JUnit 5 Integration Testing
+* Docker Support
+* GitHub Actions CI
+* GitLab CI/CD
 
 ## Technology Stack
 
@@ -30,6 +33,7 @@ A demo Student Dashboard application built with Spring Boot, Thymeleaf, JPA/Hibe
 * Maven
 * JUnit 5
 * Docker
+* GitHub Actions
 * GitLab CI/CD
 
 ## Project Structure
@@ -81,11 +85,11 @@ http://localhost:8080/h2-console
 
 ## Testing
 
-The project includes JUnit 5 integration tests that verify:
+The project includes JUnit 5 tests that verify:
 
-Repository functionality
-CRUD persistence operations
-Spring Boot application startup
+* Spring Boot application startup
+* Repository functionality
+* CRUD persistence operations
 
 Run tests:
 
@@ -95,13 +99,13 @@ mvn test
 
 ## Docker Support
 
-Build Docker image:
+Build image:
 
 ```bash
 docker build -t student-dashboard-demo .
 ```
 
-Run Docker container:
+Run container:
 
 ```bash
 docker run -p 8080:8080 student-dashboard-demo
@@ -115,15 +119,17 @@ http://localhost:8080
 
 ## CI/CD
 
-A GitLab CI/CD pipeline is configured using .gitlab-ci.yml.
+The project includes automated pipelines using:
+
+* GitHub Actions
+* GitLab CI/CD
 
 Pipeline stages:
-- Build
-- Test
 
-The pipeline automatically executes Maven build and JUnit tests whenever code is pushed to GitLab.
+* Build
+* Test
 
-The current pipeline is passing successfully.
+The pipelines automatically execute Maven builds and JUnit tests whenever code is pushed.
 
 ## Demo Data
 
@@ -134,20 +140,24 @@ The application is preloaded with sample:
 * Lectures
 * Exams
 
-using the `data.sql` script and we can also add new Students,Teachers,Exams and Lectures.
+using `data.sql`.
+
+Additional Students, Teachers, Lectures, and Exams can be created through the web interface.
 
 ## Possible Future Enhancements
 
-* Spring Security with JWT authentication
-* Role-based authorization
-* REST API documentation with Swagger/OpenAPI
-* PostgreSQL/MySQL support
-* Kubernetes deployment
-* Cloud deployment (AWS/Azure/GCP)
+* Spring Security with JWT Authentication
+* Role-Based Authorization
+* REST API Documentation using Swagger/OpenAPI
+* PostgreSQL / MySQL Support
+* Container Orchestration with Kubernetes
+* Cloud Deployment (AWS, Azure, GCP)
+* Advanced Dashboard Analytics
+* Search and Pagination
+* Email Notifications
 
 ## Author
 
-Sriram Rao
+**Sriram Rao**
 
-GitHub:
-https://github.com/srihrao214
+GitHub: https://github.com/srihrao214
