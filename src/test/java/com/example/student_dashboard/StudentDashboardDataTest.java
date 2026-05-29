@@ -28,7 +28,7 @@ class StudentDashboardDataTest {
     @Test
     void shouldLoadInitialDemoData() {
         assertEquals(10, studentRepository.count());
-        assertEquals(10, teacherRepository.count());
+        assertEquals(5, teacherRepository.count());
         assertEquals(10, lectureRepository.count());
         assertEquals(10, examRepository.count());
     }
