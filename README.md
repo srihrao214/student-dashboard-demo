@@ -1,35 +1,150 @@
 # Student Dashboard Demo
-
-A full-stack Student Dashboard application built with Java 17, Spring Boot 3, Spring Data JPA, Thymeleaf, Bootstrap, and H2 Database. The application demonstrates CRUD operations for Students, Teachers, Lectures, and Exams, along with entity relationships, dashboard statistics, automated testing using JUnit 5, Docker containerization, and CI/CD pipelines with GitHub Actions and GitLab CI.
-
-The project was created as a learning and portfolio application to showcase backend development skills, database integration, MVC architecture, testing, and deployment automation using modern Spring Boot practices.
+A demo Student Dashboard application built with Spring Boot, Thymeleaf, JPA/Hibernate and H2 Database. The project also demonstrates Docker-based deployment, JUnit testing and GitLab CI/CD automation.It also demonstrates CRUD operations for Students, Teachers, Lectures, and Exams, along with entity relationships, dashboard statistics
 
 ## Features
 
-* Student Management (Create, Read, Update, Delete)
-* Teacher Management (Create, Read, Update, Delete)
-* Lecture Management (Create, Read, Update, Delete)
-* Exam Management (Create, Read, Update, Delete)
-* Dashboard with statistics and summaries
-* H2 Database integration
-* Spring Data JPA / Hibernate
-* Thymeleaf templates with Bootstrap styling
-* JUnit 5 integration tests
+* Student management
+* Teacher management
+* Lecture scheduling
+* Exam management
+* Thymeleaf-based UI
+* H2 in-memory database
+* Spring Data JPA / Hibernate persistence
+* Sample demo data initialization
+* JUnit 5 integration testing
 * Docker support
-* GitHub Actions CI
+* GitLab CI/CD pipeline
+
+## Technology Stack
+
+* Java 17
+* Spring Boot 3
+* Spring Data JPA
+* Hibernate
+* Thymeleaf
+* H2 Database
+* Maven
+* JUnit 5
+* Docker
 * GitLab CI/CD
 
-## Future Enhancements
+## Project Structure
 
-* Spring Security authentication and role-based authorization
-* PostgreSQL or MySQL support for production deployments
-* REST API endpoints for all entities
-* Pagination and search functionality
-* Dashboard charts and analytics
-* Docker Compose setup with database container
-* Cloud deployment (AWS, Azure, Render, Railway, etc.)
-* OpenAPI / Swagger documentation
-* Improved test coverage with service and controller tests
-* File upload support for student documents and reports
-* Email notifications for exam schedules and results
-* Responsive mobile-friendly UI improvements
+```text
+src
+├── main
+│   ├── java
+│   └── resources
+│       ├── templates
+│       ├── application.properties
+│       └── data.sql
+└── test
+    └── java
+```
+
+## Running the Application
+
+### Clone Repository
+
+```bash
+git clone https://github.com/srihrao214/student-dashboard-demo.git
+cd student-dashboard-demo
+```
+
+### Build
+
+```bash
+mvn clean package
+```
+
+### Run
+
+```bash
+mvn spring-boot:run
+```
+
+Application:
+
+```text
+http://localhost:8080
+```
+
+H2 Console:
+
+```text
+http://localhost:8080/h2-console
+```
+
+## Testing
+
+The project includes JUnit 5 integration tests that verify:
+
+* Spring Boot application startup
+* Database initialization
+* Demo data loading
+* Repository functionality
+
+Run tests:
+
+```bash
+mvn test
+```
+
+## Docker Support
+
+Build Docker image:
+
+```bash
+docker build -t student-dashboard-demo .
+```
+
+Run Docker container:
+
+```bash
+docker run -p 8080:8080 student-dashboard-demo
+```
+
+Open:
+
+```text
+http://localhost:8080
+```
+
+## CI/CD
+
+A GitLab CI/CD pipeline is configured using .gitlab-ci.yml.
+
+Pipeline stages:
+- Build
+- Test
+
+The pipeline automatically executes Maven build and JUnit tests whenever code is pushed to GitLab.
+
+The current pipeline is passing successfully.
+
+## Demo Data
+
+The application is preloaded with sample:
+
+* Students
+* Teachers
+* Lectures
+* Exams
+
+using the `data.sql` script and we can also add new Students,Teachers,Exams and Lectures.
+
+## Possible Future Enhancements
+
+* Spring Security with JWT authentication
+* Role-based authorization
+* REST API documentation with Swagger/OpenAPI
+* PostgreSQL/MySQL support
+* Kubernetes deployment
+* Cloud deployment (AWS/Azure/GCP)
+
+## Author
+
+Sriram Rao
+
+GitHub:
+https://github.com/srihrao214
