@@ -3,9 +3,12 @@
 A demo Student Dashboard application built with Spring Boot, Thymeleaf, JPA/Hibernate, and H2 Database. The project demonstrates CRUD operations for Students, Teachers, Lectures, and Exams, along with entity relationships, dashboard statistics, Docker-based deployment, JUnit testing, and CI/CD automation using GitHub Actions and GitLab CI/CD.
 
 ## Status
+The project includes automated build and test pipelines using:
 
- Build Passing (GitHub Actions)
- Build Passing (GitLab CI/CD)
+- GitHub Actions
+- GitLab CI/CD
+
+The pipelines automatically execute Maven builds and JUnit tests whenever code is pushed to the repository.
 
 ## Features
 
