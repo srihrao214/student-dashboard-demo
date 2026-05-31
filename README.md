@@ -1,6 +1,8 @@
 # Student Dashboard Demo
 
-A demo Student Dashboard application built with Spring Boot, Thymeleaf, JPA/Hibernate, and H2 Database. The project demonstrates CRUD operations for Students, Teachers, Lectures, and Exams, along with entity relationships, dashboard statistics, Docker-based deployment, JUnit testing, and CI/CD automation using GitHub Actions and GitLab CI/CD.
+A demo Student Dashboard application built with Spring Boot, Thymeleaf, JPA/Hibernate, and H2 Database. The project demonstrates CRUD operations for Students, Teachers, Lectures, and Exams, along with entity relationships, dashboard statistics, Docker-based deployment, JUnit testing, and CI/CD automation using GitHub Actions and GitLab CI/CD.## Security
+
+The application was extended and tested with Keycloak-based authentication in a local development environment. Future versions will include a complete setup guide and containerized Keycloak configuration for easier execution.
 
 ## Status
 The project includes automated build and test pipelines using:
